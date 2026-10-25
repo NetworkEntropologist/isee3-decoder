@@ -1,6 +1,6 @@
 
 import json
-import frames, telemetry
+import frames, telemetry.frame
 
 telemetry_file = 'raw-telemetry/20140709.log'
 
@@ -10,7 +10,8 @@ frame_60_values = {}
 
 for frame in frame_data:
     for key, value in frame.items():
-        frame_60_values[key] = int(str(telemetry.frame_counter(value)), 16)
+        _new_frame = telemetry.frame.TelemetryFrame(key, value)
+        frame_60_values[key] = int(_new_frame.frame_counter, 16)
         
-done = input("Done.")
+print(json.dumps(frame_60_values, indent=2))
 

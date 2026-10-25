@@ -50,13 +50,14 @@ def parse_file(file_contents: list) -> list:
 
                 print(f'Processing frame {_frame_number}')
 
-            # TODO: Refactor this to take hex into account and strip the byte index
+            # TODO: Refactor this to take hex into account
             # Continue with the current frame
-            elif str(_line_contents[0]).isnumeric():
+            if len(str(_line_contents[0])) == 2:
+            # elif str(_line_contents[0]).isnumeric():
                 _row_byte_index = 0
 
-                for _row_byte in str(_file_line).split():
-                    _frame_bytes.append({_frame_byte_index : _row_byte})
+                for _row_byte in str(_file_line).split(): 
+                    _frame_bytes.append(_row_byte)
                     _frame_byte_index += 1    
                     _row_byte_index += 1 # Remember to increment the index
 
