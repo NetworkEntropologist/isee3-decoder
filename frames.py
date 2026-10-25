@@ -13,6 +13,12 @@ def format_number(number:str) -> int:
 
     return int(number)
 
+def format_time(time:str) -> str:
+
+    return time[1:len(time) - 2]
+
+    return ''
+
 def load_file(filename: str) -> list:
 
     _raw_file_contents = ''
@@ -26,6 +32,7 @@ def parse_file(file_contents: list) -> list:
 
     _file_frames = []
     _frame_bytes = []
+    _frame_time = ''
     _frame_byte_index = 0
     _frame_number = 0
 
@@ -41,29 +48,36 @@ def parse_file(file_contents: list) -> list:
             if str(_line_contents[0]) == frame_start_marker:
                 # Save the previous frame before starting a new one
                 if _frame_bytes:
-                    _file_frames.append({_frame_number : _frame_bytes})
+                    _file_frames.append({
+                        'index' : _frame_number,
+                        'time_index' : _frame_time,
+                        'bytes' : _frame_bytes
+                        })
 
                 # Reset the counters and indeces
                 _frame_number = format_number(_line_contents[1])
+                _frame_time = format_time(_line_contents[5])
                 _frame_byte_index = 0
                 _frame_bytes = []
 
-                print(f'Processing frame {_frame_number}')
+                print(f'Processing frame {_frame_number} with time index {_frame_time}')
 
-            # TODO: Refactor this to take hex into account
             # Continue with the current frame
             if len(str(_line_contents[0])) == 2:
             # elif str(_line_contents[0]).isnumeric():
                 _row_byte_index = 0
 
                 for _row_byte in str(_file_line).split(): 
-                    _frame_bytes.append(_row_byte)
+                    _frame_bytes.append(int(_row_byte, 16).to_bytes(1, 'little'))
                     _frame_byte_index += 1    
                     _row_byte_index += 1 # Remember to increment the index
 
-    # Finally add the last frame to the list of frames
-    if _frame_bytes:
-        _file_frames.append({_frame_number : _frame_bytes})
+    # # Finally add the last frame to the list of frames
+    # if _frame_bytes:
+    #     _file_frames.append({
+    #         'index' : _frame_number,
+    #         ''
+    #     })
 
     return _file_frames
 
