@@ -1,10 +1,11 @@
 
 import json
-import frames, telemetry.frame
+import helpers, files, frames, telemetry.frame
 
 telemetry_file = 'raw-telemetry/20140706.log'
+frame_start_marker = 'Frame'
 
-frame_data = frames.parse_file(frames.load_file(telemetry_file))
+frame_data = files.parse_file(files.load_file(telemetry_file), frame_start_marker)
 
 frame_60_values = {}
 

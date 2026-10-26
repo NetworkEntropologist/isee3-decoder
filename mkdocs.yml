@@ -1,0 +1,78 @@
+site_name: ISEE-C Telemetry Formats and Telemetry Lists
+site_description: Transcription of Fairchild document 905-TL-3006-01 (ISEE Notebook 18g-2), Revision C, 8 September 1977
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Front matter: front-matter.md
+  - Sections:
+      - I–III. Purpose, Scope, References: sections/01-purpose-scope-references.md
+      - IV. Telemetry Bit Identification: sections/04-bit-identification.md
+      - V. Telemetry Timing Table: sections/05-timing-table.md
+      - VI. Minor Frame Scientific Format: sections/06-minor-frame-scientific.md
+      - VII. Subcom Formats: sections/07-subcom-formats.md
+      - VIII. Status Register (Words 61–63): sections/08-status-register.md
+      - IX. Digital Subcom Word Detail: sections/09-digital-subcom-word-detail.md
+      - X. Minor Frame Engineering Format: sections/10-minor-frame-engineering.md
+      - XI. DHU Simplified Interconnect Diagram: sections/11-dhu-interconnect.md
+      - XII. Scientific Addressing Format: sections/12-scientific-addressing.md
+      - XIII. Digital Subcom Addressing Format: sections/13-digital-subcom-addressing.md
+      - XIV. Engineering Addressing Format: sections/14-engineering-addressing.md
+      - XV. Glossary: sections/15-glossary.md
+  - Appendix A – Scientific Format (Numerical):
+      - appendix-a/index.md
+      - By sub-frame position: appendix-a/by-subframe.md
+  - Appendix B – Scientific Format (by Subsystem):
+      - appendix-b/index.md
+      - "B-I. Attitude Measurement (AM)": appendix-b/b-i.md
+      - "B-II. Attitude and Orbit Control (AT)": appendix-b/b-ii.md
+      - "B-III. Command (CM)": appendix-b/b-iii.md
+      - "B-IV. Power (PW)": appendix-b/b-iv.md
+      - "B-V. S-Band Communication (SD)": appendix-b/b-v.md
+      - "B-VI. Structures (SE)": appendix-b/b-vi.md
+      - "B-VII. Telemetry and Data Processing (TL)": appendix-b/b-vii.md
+      - "B-VIII. Anderson (ANH)": appendix-b/b-viii.md
+      - "B-IX. Bame (BAH)": appendix-b/b-ix.md
+      - "B-X. Defeiter (DFH)": appendix-b/b-x.md
+      - "B-XI. Heckman (HKH)": appendix-b/b-xi.md
+      - "B-XII. Hovestat (HOH)": appendix-b/b-xii.md
+      - "B-XIII. Meyer (MEH)": appendix-b/b-xiii.md
+      - "B-XIV. Ogilive (OGH)": appendix-b/b-xiv.md
+      - "B-XV. Steinberg (SBH)": appendix-b/b-xv.md
+      - "B-XVI. Scarf (SCH)": appendix-b/b-xvi.md
+      - "B-XVII. Smith (SMH)": appendix-b/b-xvii.md
+      - "B-XVIII. Stone (STH)": appendix-b/b-xviii.md
+      - "B-XIX. Teegarden (TEH)": appendix-b/b-xix.md
+      - "B-XX. vonRosenvinge (TYH)": appendix-b/b-xx.md
+  - Appendix C – Engineering Format (Numerical): appendix-c/index.md
+  - Transcription notes: transcription-notes.md
