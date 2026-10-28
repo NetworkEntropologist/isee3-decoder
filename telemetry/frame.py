@@ -53,8 +53,6 @@ class TelemetryFrame:
 
         self._decode_frame()
 
-        ...
-
     def _decode_frame(self):
         # TODO: Add frame decode logic
 
@@ -91,4 +89,4 @@ class TelemetryFrame:
         _values = [b[0] for b in _accel_bytes]
         self._frame_engineering_data['ACC'] = int(sum(_values) / len(_values))
 
-        ...
+
